@@ -26,7 +26,7 @@ function lineGrow() {
     var wid = 0;
     var inter = setInterval(frame, 10);
     function frame() {
-        if (wid == 20) {
+        if (wid === 20) {
             clearInterval(inter);
         } else {
             wid++;
