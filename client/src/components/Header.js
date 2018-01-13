@@ -9,8 +9,8 @@ export default class Header extends Component {
 
     render() {
         return (
-            <div>
-                
+
+            <div onClick={() => this.props.setPage('main')}>
                 <h1 class="title">Project Clearwater</h1>
                 <div id="firline"></div>
                 <p class="slogan">Exposing the inequality in police encounters.</p>
