@@ -4,44 +4,44 @@ import React, { Component } from 'react';
 export default class Shootings extends Component {
 
   componentDidMount() {
-    Plotly.d3.csv('https://raw.githubusercontent.com/bcdunbar/datasets/master/meteorites_subset.csv', function (err, rows) {
+    Plotly.d3.csv('https://raw.githubusercontent.com/fivethirtyeight/data/master/police-killings/police_killings.csv', function (err, rows) {
 
-      var classArray = unpack(rows, 'class');
-      var classes = [...new Set(classArray)];
+      var raceArray = unpack(rows, 'raceethnicity');
+      var races = [...new Set(raceArray)];
 
       function unpack(rows, key) {
         return rows.map(function (row) { return row[key]; });
       }
 
-      var data = classes.map(function (classes) {
+      var data = races.map(function (races) {
         var rowsFiltered = rows.filter(function (row) {
-          return (row.class === classes);
+          return (row.raceethnicity === races);
         });
         return {
           type: 'scattermapbox',
-          name: classes,
-          lat: unpack(rowsFiltered, 'reclat'),
-          lon: unpack(rowsFiltered, 'reclong')
+          name: races,
+          lat: unpack(rowsFiltered, 'latitude'),
+          lon: unpack(rowsFiltered, 'longitude'),
         };
       });
 
       var layout = {
-        title: 'Meteorite Landing Locations',
+        title: 'Fatal Police Shootings',
         font: {
           color: 'white'
         },
         dragmode: 'zoom',
         mapbox: {
           center: {
-            lat: 38.03697222,
-            lon: -90.70916722
+            lat: 40,
+            lon: -100
           },
           domain: {
             x: [0, 1],
             y: [0, 1]
           },
           style: 'dark',
-          zoom: 1
+          zoom: 2.5
         },
         margin: {
           r: 20,
@@ -58,7 +58,7 @@ export default class Shootings extends Component {
           y: 0,
           xref: 'paper',
           yref: 'paper',
-          text: 'Source: NASA',
+          text: 'Source: fivethirtyeight',
           showarrow: false
         }]
       };
