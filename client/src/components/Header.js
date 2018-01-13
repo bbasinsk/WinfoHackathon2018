@@ -9,7 +9,6 @@ export default class Header extends Component {
 
     render() {
         return (
-
             <div onClick={() => this.props.setPage('main')}>
                 <h1 class="title">Project Clearwater</h1>
                 <div id="firline"></div>
@@ -19,6 +18,10 @@ export default class Header extends Component {
             </div>
         );
     }
+}
+
+function blacked() {
+
 }
 
 function lineGrow() {
