@@ -4,7 +4,7 @@ import './App.css';
 import Plot from './components/Plot';
 import Header from './components/Header';
 
-class App extends Component {
+export class App extends Component {
   render() {
     return (
       <div className="App">
@@ -14,5 +14,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;
