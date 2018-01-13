@@ -1,0 +1,16 @@
+* {
+    font-family: "Bodoni MT", 'Didot', "Didot LT STD", "Book Antiqua", Garamond, "Times New Roman", serif;
+}
+h1 {
+    margin: 0;
+    margin-top: 5px;
+}
+p {
+    margin: 10px;
+}
+#firline {
+    height: 2px;
+    width: 0%;
+    background-color: black;
+    margin: 0 auto;
+}
