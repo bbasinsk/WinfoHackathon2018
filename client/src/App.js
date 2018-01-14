@@ -51,7 +51,7 @@ export default class App extends Component {
 function disappear() {
   var el = document.getElementsByClassName("cont")[0];
   el.style.display = 'none';
-  el.disappear;
+  // el.disappear;
 }
 
 function appear() {
