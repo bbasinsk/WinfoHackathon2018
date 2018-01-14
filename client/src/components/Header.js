@@ -11,6 +11,7 @@ export default class Header extends Component {
 
     render() {
         return (
+                
             <div onClick={() => this.props.setPage('main')}>
                 <div id="quote">
                     <h2> Racial Profiling (n.)</h2> 
@@ -25,6 +26,7 @@ export default class Header extends Component {
                     <div id="firline"></div>
                     <p id="slogan">Exposing the inequality during police encounters.</p>
                 </div>
+
             </div>
         );
     }
