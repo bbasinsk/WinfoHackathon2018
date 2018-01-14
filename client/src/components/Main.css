@@ -1,0 +1,43 @@
+
+.parent {
+    margin-top: 150px;
+}
+
+.parent > div {
+    margin-left: auto;
+    margin-right: auto;
+    width: 15%;
+    height: 100px;
+    cursor: pointer;
+}
+
+.par1,.par2 > p {
+    line-height: 70px;
+    color: black;
+    height: 50px;
+    font-family: "Bodoni MT", 'Didot', "Didot LT STD", "Book Antiqua", Garamond, "Times New Roman", serif;
+
+    
+}
+.par1:hover, .par2:hover {
+    background-color: antiquewhite;
+}
+.par1 {
+    border-top-left-radius: 200px;
+    border-top-right-radius: 200px;
+    width: 150px;
+    height: 150px;
+    background-color: white;
+    border: 1px solid black;
+    padding: 0px;
+    margin-bottom: 15px;
+}
+
+.par2 {
+    border-bottom-left-radius: 300px;
+    border-bottom-right-radius: 300px;
+    width: 150px;
+    height: 150px;
+    background-color: white;
+    border: 1px solid black;
+}
