@@ -23,7 +23,7 @@ export default class Header extends Component {
                 <div id="enter">
                     <h1 class="title">Project Clearwater</h1>
                     <div id="firline"></div>
-                    <p id="slogan">Exposing the inequality in police encounters.</p>
+                    <p id="slogan">Exposing the inequality during police encounters.</p>
                 </div>
             </div>
         );

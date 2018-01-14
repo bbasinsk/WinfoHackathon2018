@@ -7,14 +7,12 @@ export default class Main extends Component {
         return (
             <div className="parent">
                 <div className="par1" onClick={() => this.props.setPage('plot')} >
-                    <p>Racial Profiling</p>
+                    <p><b>Stop and Search</b></p>
                 </div>
                 <div className="par2" onClick={() => this.props.setPage('map') }> 
-                    <p>Police Shooting</p>
+                    <p><b>Police Shootings</b></p>
                 </div>
-                <div className="tri">
-
-                </div>
+                
             </div>
 
 
