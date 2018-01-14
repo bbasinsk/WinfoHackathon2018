@@ -10,12 +10,12 @@ export default class Header extends Component {
     render() {
         return (
 
-            <div onClick={() => this.props.setPage('main')}>
+            <div className="header" onClick={() => this.props.setPage('main')}>
                 <h1 className="title">Project Clearwater</h1>
                 <div id="firline"></div>
                 <p className="slogan">Exposing the inequality in police encounters.</p>
                 <div className="secline"></div>
-                <hr/>
+                
             </div>
         );
     }
