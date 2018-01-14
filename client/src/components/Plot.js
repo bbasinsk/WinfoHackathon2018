@@ -9,7 +9,7 @@ export default class Plot extends Component {
         this.state = {
             xData: this.getData('All Ages'),
             yData: ['White', 'Asian', 'Hispanic', 'Black'],
-            title: 'Likelihood of search when stopped: All Ages'
+            title: 'Likelihood of Search When Stopped: All Ages'
         };
     }
 
