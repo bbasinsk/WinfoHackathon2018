@@ -8,7 +8,7 @@ export default class Plot extends Component {
         super(props);
         this.state = {
             xData: this.getData('All Ages'),
-            yData: ['White', 'Hispanic', 'Asian', 'Black'],
+            yData: ['White', 'Asian', 'Hispanic', 'Black'],
             title: 'Likelihood of search when stopped: All Ages'
         };
     }
@@ -31,7 +31,7 @@ export default class Plot extends Component {
             },
             xaxis: {
                 tickformat: ',.0%',
-                range: [0,.1],
+                range: [0,.11],
                 title: '% of stops that resulted in searches',
                 titlefont: {
                     size: 16,
@@ -64,19 +64,19 @@ export default class Plot extends Component {
         // ['Other', 'White', 'Hispanic', 'Black', 'Asian']
         switch (age) {
             case '14-24':
-                return [.0384, .0637, .0341, .0694];
+                return [.0384, .0341, .0637, .0694];
 
             case '25-35':
-                return [.0357, .0515, .0282, .0683];
+                return [.0357, .0282, .0515, .0683];
 
             case '36-46':
-                return [.0265, .0347, .0169, .0533];
+                return [.0265, .0169, .0347, .0533];
 
             case '47+':
-                return [.0167, .0254, .0101, .0356];
+                return [.0167, .0101, .0254, .0356];
 
             default:
-                return [.0284, .0478, .0225, .0589];
+                return [.0284, .0225, .0478, .0589];
         }
     }
 
