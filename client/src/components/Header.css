@@ -2,15 +2,12 @@
     font-family: "Bodoni MT", 'Didot', "Didot LT STD", "Book Antiqua", Garamond, "Times New Roman", serif;
 }
 
-.header:hover {
-    cursor: pointer;
-}
-
 h1 {
     margin: 0;
     margin-top: 5px;
     opacity: 0;
     padding: 5px;
+    cursor: pointer;
 }
 #enter p {
     margin: 10px;

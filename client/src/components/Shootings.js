@@ -1,114 +1,71 @@
 /* global Plotly */
 import React, { Component } from 'react';
-
+import './Shootings.css';
 export default class Shootings extends Component {
 
-  
 
-componentDidMount() {
-  Plotly.d3.csv('https://raw.githubusercontent.com/plotly/datasets/master/2011_us_ag_exports.csv', function (err, rows) {
-    function unpack(rows, key) {
-      return rows.map(function (row) { return row[key]; });
-    }
 
-    function log(rows, key) {
-      console.log(unpack(rows, key));
-    }
+  componentDidMount() {
+    Plotly.d3.csv('https://raw.githubusercontent.com/bbasinsk/WinfoHackathon2018/master/stateRaces.csv', function (err, rows) {
+      function unpack(rows, key) {
+        return rows.map(function (row) { return row[key]; });
+      }
 
-    let states = {
-      Alaska: .5,
-      Alabama: 1,
-      Arkansas: 0,
-      Arizona: 0,
-      California: 1,
-      Colorado: 1,
-      Connecticut: 0,
-      DC: 1,
-      Delaware: 0,
-      Florida: 1,
-      Georgia: 1,
-      Hawaii: .5,
-      IA: 0,
-      Idaho: 0,
-      Illinois: 1,
-      Indiana: 1,
-      Kansas: .5,
-      Kentucky: 1,
-      Louisiana: 1,
-      Massachusetts: 0,
-      Maryland: 1,
-      Maine: 0,
-      Michigan: 0,
-      Minnesota: 1,
-      Missouri: 1,
-      Mississippi: 0,
-      Montana: 1,
-      'North Carolina': 1,
-      NE: 1,
-      NH: 0,
-      NJ: 1,
-      NM: 0,
-      NV: .5,
-      NY: 1,
-      OH: 1,
-      OK: 1,
-      OR: 0,
-      PA: 1,
-      SC: 1,
-      TN: 1,
-      TX: .5,
-      UT: 0,
-      VA: 1,
-      WA: 1,
-      WI: 0,
-      WV: 0,
-      WY: 0
-    };
-
-    var data = [{
-      type: 'choropleth',
-      locationmode: 'USA-states',
-      locations: Object.keys(states),
-      z: Object.values(states),
-      text: unpack(rows, 'state'),
-      zmin: 0,
-      zmax: 1,
-      colorscale: [
-        [0, 'rgb(255,255,255)'], 
-        // [0, 'rgb(242,240,247)'], 
-        [1, 'rgb(0,0,0)']
-      ],
-      colorbar: {
-        title: 'Millions USD',
-        thickness: 0.2
-      },
-      marker: {
-        line: {
-          color: 'rgb(255,255,255)',
-          width: 2
+      var data = [{
+        type: 'choropleth',
+        showscale: false,
+        locationmode: 'USA-states',
+        locations: unpack(rows, 'code'),
+        z: unpack(rows, 'race'),
+        text: unpack(rows, 'state'),
+        zmin: 0,
+        zmax: 1,
+        colorscale: [
+          [0, 'rgb(230,230,230)'],
+          [1, 'rgb(0,0,0)']
+        ],
+        marker: {
+          line: {
+            color: 'rgb(255,255,255)',
+            width: 2
+          }
         }
-      }
-    }];
+      }];
 
+      var layout = {
+        title: 'Most Common Ethnicities to be Shot by Police in Each State',
+        titlefont: {
+          size: 22,
+          color: 'rgb(0, 0, 0)',
+          family: 'Bodoni, serif',
+        },
+        geo: {
+          scope: 'usa',
+          showlakes: true,
+          lakecolor: 'rgb(255,255,255)'
+        },
+        showlegend: false,
+        hovermode: false
+      };
 
-    var layout = {
-      title: 'States Where Blacks are More Likely to be Shot by Police',
-      geo: {
-        scope: 'usa',
-        showlakes: true,
-        lakecolor: 'rgb(255,255,255)'
-      }
-    };
+      Plotly.plot('graphDiv', data, layout, { showLink: false, displayModeBar: false });
+    });
+  }
 
-    Plotly.plot('graphDiv', data, layout, { showLink: false });
-  });
-}
+  render() {
+    return (
+      <div>
+        <div id="graphDiv"></div>
+        <div id="expla">
+          <p>
+            This map visualization shows racial disparities in the victims of police shootings. For each state, the most-targeted (per capita) race for police shootings is depicted; white for Caucasians, black for African American, and grey for other races (Hispanic, Native American)
+          </p>
 
-render() {
-  return (
-    <div id="graphDiv"></div>
-  );
-}
+        </div>
+      </div>
+
+    );
+  }
 
 }
 
